@@ -17,7 +17,7 @@ $(document).ready(function () {
                 movePlayerRight();
                 break;
             default:
-                console.log("Keine gültige Taste")
+                console.log("Keine gueltige Taste")
                 break;
         }
         updatePlayerLocation()
@@ -33,10 +33,9 @@ function movePlayerRight() {
 }
 
 function updatePlayerLocation() {
-    $("#player").css({
-        left: player.left,
-        top: player.top
-    })
+    $("#player")
+    .css('margin-top', player.top)
+    .css('margin-left', player.left)
 }
 
 function setPlayerLocation(top, left) {
