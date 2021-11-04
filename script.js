@@ -14,29 +14,7 @@ function setStartPosition(top, left){
 			setStartPosition(630, 400);
 		});
 		
-//			switch (e.code) { 
-//				case "KeyW":
-	//				player.top = player.top -30;
-	//				break;
-	//		}
-	//		switch (e.code) { 
-	//			case "KeyA":
-	//				player.left = player.left -30;
-	//			break;
-	//		}
-	//		switch (e.code) { 
-	//			case "KeyS":
-	//				player.top = player.top +30;
-	//				break;
-	//		}
-	//		switch (e.code) { 
-	//			case "KeyD":
-	//			player.left = player.left +30;
-	//				break;
-	//		}
-	//		setPlayerPosition();
-	//		
-	//	});
+		
 		
 	
 
@@ -70,12 +48,16 @@ function getPosition(e) {
 let Punkte = 0;
 		
 
+					$(document).on('keydown', function(e) {
 			switch (e.code) { 
-				case "KeyD":
-				player.left = player.left +30;
-				break;
+				case "KeyW":
+					coin.left = coin.left -10;
+					break;
 			}
-			setPlayerPosition();
+			setCoinPosition();
+		});
+			
+			
 			
 		
 		
