@@ -1,5 +1,14 @@
-#buttons {
-	position: absolute;
+ body {
+	background-image: url('Waldlandschaft.png');
+	background-size: cover;
+	
 }
 
-/*der div container buttons soll in der mitte des bildschirms sein weiß aber nicht was der befefhl ist*/
+#buttons {
+	position: absolute;
+	margin: 0;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate (-50%, -50%);
+	transform: translate(-50%,-50%);
+}
