@@ -1,72 +1,65 @@
-#can {
-    background-image: url('Eislandschaft.png');
-    display: block;
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    position: absolute;
-    background-size: contain;
-    width: 3000px;
-    height: 1200px;
-    z-index: 0;
-}
-
 * {
     margin: 0;
     padding: 0;
 }
 
+#playground {
+    display: block;
+    width: 1250px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: solid black 2px;
+    /*margin: auto auto;*/
+    /*margin-top: calc(50vh - 250px);*/
+}
+
+#homeScreen {
+    display: none;
+}
+
 #player {
     width: 100px;
     height: 100px;
-    background-image: url('Mario.png');
-    /* richtiges bild einfügen */
     background-size: contain;
-    position: absolute;
     background-repeat: no-repeat;
-    margin-top: 0px;
-    margin-left: 0px;
-    z-index: 200;
+    position: absolute;
+    z-index: 2;
 }
 
-#block {
-    z-index: 200;
+.obstacle {
+    z-index: 2;
     width: 50px;
     height: 50px;
     background-color: blue;
-    position: relative;
-    top: 780px;
-    left: 900px;
-    animation: block 1s infinite linear;
+    position: absolute;
+    top: 300px;
+    left: 1250px;
+    animation: obstacle 2.5s linear;
 }
 
-@keyframes block {
+@keyframes obstacle {
     0% {
-        left: 900px;
-    }
-    30% {
-        left: 600px;
-    }
-    70% {
-        left: 300px;
+        left: 1250px;
     }
     100% {
-        left: 0px;
+        left: 0;
     }
 }
 
 .jumpClass {
-    animation: jump 300ms linear;
+    animation: jump 300ms ease-in-out;
 }
 
 @keyframes jump {
     0% {
         top: 0px;
     }
-    30% {
-        top: -150px;
+    45% {
+        top: -100px;
     }
-    70% {
-        top: -150px;
+    55% {
+        top: -100px;
     }
     100% {
         top: 0px;
@@ -74,32 +67,22 @@
 }
 
 .highJumpClass {
-    animation: highJump 500ms linear;
+    animation: highJump 450ms ease-in-out;
 }
 
 @keyframes highJump {
     0% {
         top: 0px;
     }
-    30% {
-        top: -300px;
+    45% {
+        top: -200px;
     }
-    70% {
-        top: -300px;
+    55% {
+        top: -200px;
     }
     100% {
         top: 0px;
     }
-}
-
-#player {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('mario.png');
-    z-index: 100;
 }
 
 #stoneParent {
@@ -120,15 +103,6 @@
     height: 75px;
 }
 
-#player {
-    height: 150px;
-    width: 150px;
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('mario.png')
-}
-
 #coin {
     height: 50px;
     width: 50px;
@@ -136,13 +110,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('muenze.png')
-}
-
-body {
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('Eislandschaft.png')
 }
 
 #buttons {
