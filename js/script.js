@@ -1,6 +1,155 @@
 let player = {
     top: 0,
     left: 0,
+}
+
+$(document).ready(function() {
+    console.log("starting");
+    setStartPosition(720, 20); /* Startpositionen auf verschiedenen Maps verändern */
+    $(document).on('keydown', function(e) {
+        console.log(e.code);
+        switch (e.code) {
+            case "KeyD":
+                player.left = player.left + 15;
+                break;
+            case "KeyA":
+                player.left = player.left - 15;
+                break;
+            case "KeyW":
+                jump();
+                break;
+            case "Space":
+                highjump();
+                break;
+            default:
+                console.log(e.code);
+        }
+        setPlayerPosition()
+    });
+});
+
+function highjump() {
+    $('#player').addClass("highJumpClass");
+    window.setTimeout(function() {
+        $('#player').removeClass("highJumpClass");
+    }, 500);
+}
+
+function jump() {
+    $('#player').addClass("jumpClass");
+    window.setTimeout(function() {
+        $('#player').removeClass("jumpClass");
+    }, 300);
+}
+
+function setStartPosition(top, left) {
+    player.top = top;
+    player.left = left;
+    setPlayerPosition();
+}
+
+function setPlayerPosition() {
+    $('#player')
+        .css('margin-top', player.top)
+        .css('margin-left', player.left)
+}
+
+$(document).ready(function() {
+    setStartPosition(630, 400);
+});
+
+$(document).ready(e => {
+    $("#starten").click(function() {
+
+        function setStartPositionCoin(top, left) {
+            coin.top = top;
+            coin.left = left;
+            setCoinPosition();
+        }
+
+        function setCoinPosition() {
+            $('#coin')
+                .css('margin-top', coin.top)
+                .css('margin-left', coin.left)
+        }
+
+        setStartPositionCoin(650, 900);
+
+        function getPosition(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            var coords = "x koordinaten: " + x + "y koordinate: " + y;
+            document.getElementById("showcoordinates").innerHTML = coords;
+
+
+        }
+
+        let koordinate;
+
+
+        var coin = { left: 1900 }
+
+        var coinNumber = 16;
+
+        var Stone = document.getElementById('stone');
+
+
+        function coinAppearence() {
+            zahl = Math.floor(Math.random() * 900)
+            coin.left = 1900
+            for (let i = 0; i < coinNumber; i++) {
+                $("#coin" + i)
+                    .css('margin-top', zahl)
+                    .css('margin-left', coin.left)
+            }
+            console.log("coinApperance")
+        }
+
+        function coinMovment() {
+            setInterval(function() {
+
+                coin.left = coin.left - 10
+
+                $(coin).css('margin-left', coin.left)
+
+
+                if (coin.left <= -150) { coinAppearence() }
+
+                console.log(coin.left)
+
+            }, 100);
+        }
+
+        $('#coin').animate({
+            width: '200',
+            left: '+=50'
+        }, 5000, function() {});
+    });
+});
+
+
+$(document).ready(e => {
+    $("#map").click(function() {
+
+
+
+
+    });
+});
+
+
+$(document).ready(e => {
+    $("#charakter").click(function() {
+
+
+
+
+    });
+});
+
+let player = {
+    top: 0,
+    left: 0,
     speed: 10,
     jumpStrenght: 20,
     costume: "mario",
@@ -33,7 +182,7 @@ var stone15 = { left: 1900 }
 var stoneNumber = 16;
 let startStones = 3;
 
-$(document).ready(function () {
+$(document).ready(function() {
     console.log("ready");
 
     generateStones()
@@ -84,7 +233,7 @@ function movePlayerRight() {
 
 function changePlayerCostume() {
     player.costumeNumber++
-    console.log(player.costumeNumber)
+        console.log(player.costumeNumber)
     switch (player.costumeNumber) {
         case 1:
             player.costume = "mario"
@@ -106,7 +255,7 @@ function changePlayerCostume() {
 }
 
 function stoneMovment() {
-    setInterval(function () {
+    setInterval(function() {
 
         stone0.left = stone0.left - stone.speed
         stone1.left = stone1.left - stone.speed
@@ -277,12 +426,12 @@ function stoneMovment() {
 }
 
 function generateStones() {
-//    let html = "";
-//    for (var i = 0; i < stoneNumber; i++) {
-//        html += '<div id="stone' + i + '" style="height:75; width:200"></div>'
-//    }
+    //    let html = "";
+    //    for (var i = 0; i < stoneNumber; i++) {
+    //        html += '<div id="stone' + i + '" style="height:75; width:200"></div>'
+    //    }
 
-//    document.getElementById("stoneParent").innerHTML = html;
+    //    document.getElementById("stoneParent").innerHTML = html;
 
     stoneMovment()
     setStoneImage()
@@ -290,11 +439,11 @@ function generateStones() {
 
 function setStonesVisible(timeUntilNextStone) {
 
-        setTimeout(function() {
-            startStones++
-            showStones()
-            timeUntilNextStone = setStonesVisibleDelay()
-        }, timeUntilNextStone)
+    setTimeout(function() {
+        startStones++
+        showStones()
+        timeUntilNextStone = setStonesVisibleDelay()
+    }, timeUntilNextStone)
 }
 
 function setStonesVisibleDelay() {
@@ -329,8 +478,8 @@ function setStoneImage() {
             .css('position, absolute')
     }
     $("#stone0")
-    .css('background-image', "url(grafik/stone.png)")
-    .css('position, absolute')
+        .css('background-image', "url(grafik/stone.png)")
+        .css('position, absolute')
 }
 
 function updatePlayer() {
