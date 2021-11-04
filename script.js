@@ -44,19 +44,58 @@ function getPosition(e) {
 	
 }
 	let koordinate;	
+	
+	
+	var coin = { left: 1900 }
+	
+	var coinNumber = 16;
+	
+	var Stone = document.getElementById('stone');
+	
 
-let Punkte = 0;
-		
+function coinAppearence() {
+    zahl = Math.floor(Math.random() * 900)
+    coin.left = 1900
+    for (let i = 0; i < coinNumber; i++) {
+        $("#coin" + i)
+            .css('margin-top', zahl)
+            .css('margin-left', coin.left)
+    }
+    console.log("coinApperance")
+}
 
-					$(document).on('keydown', function(e) {
-			switch (e.code) { 
-				case "KeyW":
-					coin.left = coin.left -10;
-					break;
-			}
-			setCoinPosition();
-		});
+function coinMovment() {
+    setInterval(function () {
+
+        coin.left = coin.left - 10
+
+        $(coin).css('margin-left', coin.left)
+
+
+        if (coin.left <= -150) { coinAppearence() }
+
+        console.log(coin.left)
+        
+    }, 100);
+}
+
 			
+			
+			
+	//		$(document).on('keydown', function(e) {
+	//		switch (e.code) { 
+	//			case "KeyW":
+	//				coin.left = coin.left -10;
+	//				break;
+	//		}
+	//		setCoinPosition();
+	//	});
+	
+	$('#coin').animate({
+		width: '200',
+		left: '+=50'
+	},5000, function() {
+	});
 			
 			
 		
