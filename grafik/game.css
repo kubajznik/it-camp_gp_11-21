@@ -5,6 +5,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('mario.png');
+    z-index: 100;
 }
 
 #stoneParent {
@@ -13,5 +14,8 @@
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('stone.png');
+}
+
+#stone0 {
+    
 }
