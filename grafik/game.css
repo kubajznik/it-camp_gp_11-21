@@ -6,3 +6,12 @@
     background-repeat: no-repeat;
     background-image: url('mario.png');
 }
+
+#stoneParent {
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('stone.png');
+}
