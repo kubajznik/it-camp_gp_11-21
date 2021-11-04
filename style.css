@@ -1,8 +1,30 @@
- body {
-	background-image: url('Waldlandschaft.png');
-	background-size: cover;
-	
+
+#player {
+		height: 150px;
+		width: 150px;
+		position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url('mario.png')
 }
+
+
+#coin {
+		height: 50px;
+		width: 50px;
+		position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url('muenze.png')
+}
+
+body {position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+	background-image: url('Eislandschaft.png')
+
+}
+
 
 #buttons {
 	position: absolute;
