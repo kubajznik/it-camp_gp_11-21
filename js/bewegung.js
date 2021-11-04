@@ -31,15 +31,17 @@ var stone14 = { left: 1900 }
 var stone15 = { left: 1900 }
 
 var stoneNumber = 16;
-
-var Player = document.getElementById('player');
-var Stone = document.getElementById('stone');
+let startStones = 3;
 
 $(document).ready(function () {
     console.log("ready");
+
     generateStones()
+    setStonesVisible(Math.floor(Math.random() * 10 * 1000))
+
     setPlayerLocation(500, 500)
     updatePlayer()
+
     $(document).on('keydown', e => {
         console.log(e.code)
         switch (e.code) {
@@ -70,7 +72,7 @@ $(document).ready(function () {
         }
         updatePlayer()
     })
-});
+})
 
 function movePlayerLeft() {
     player.left = player.left - player.speed;
@@ -103,32 +105,6 @@ function changePlayerCostume() {
     $("#player").css('background-image', "url('" + "grafik/" + player.costume + ".png'");
 }
 
-function stoneAppearence() {
-    zahl = Math.floor(Math.random() * 900)
-    stone0.left = 1900
-    stone1.left = 1900
-    stone2.left = 1900
-    stone3.left = 1900
-    stone4.left = 1900
-    stone5.left = 1900
-    stone6.left = 1900
-    stone7.left = 1900
-    stone8.left = 1900
-    stone9.left = 1900
-    stone10.left = 1900
-    stone11.left = 1900
-    stone12.left = 1900
-    stone13.left = 1900
-    stone14.left = 1900
-    stone15.left = 1900
-    for (let i = 0; i < stoneNumber; i++) {
-        $("#stone" + i)
-            .css('margin-top', zahl)
-            .css('margin-left', stone.left)
-    }
-    console.log("stoneApperance")
-}
-
 function stoneMovment() {
     setInterval(function () {
 
@@ -149,56 +125,212 @@ function stoneMovment() {
         stone14.left = stone14.left - stone.speed
         stone15.left = stone15.left - stone.speed
 
-        $(stone0).css('margin-left', stone0.left)
-        $(stone1).css('margin-left', stone1.left)
-        $(stone2).css('margin-left', stone2.left)
-        $(stone3).css('margin-left', stone3.left)
-        $(stone4).css('margin-left', stone4.left)
-        $(stone5).css('margin-left', stone5.left)
-        $(stone6).css('margin-left', stone6.left)
-        $(stone7).css('margin-left', stone7.left)
-        $(stone8).css('margin-left', stone8.left)
-        $(stone9).css('margin-left', stone9.left)
-        $(stone10).css('margin-left', stone10.left)
-        $(stone11).css('margin-left', stone11.left)
-        $(stone12).css('margin-left', stone12.left)
-        $(stone13).css('margin-left', stone13.left)
-        $(stone14).css('margin-left', stone14.left)
-        $(stone15).css('margin-left', stone15.left)
+        $("#stone0").css('margin-left', stone0.left)
+        $("#stone1").css('margin-left', stone1.left)
+        $("#stone2").css('margin-left', stone2.left)
+        $("#stone3").css('margin-left', stone3.left)
+        $("#stone4").css('margin-left', stone4.left)
+        $("#stone5").css('margin-left', stone5.left)
+        $("#stone6").css('margin-left', stone6.left)
+        $("#stone7").css('margin-left', stone7.left)
+        $("#stone8").css('margin-left', stone8.left)
+        $("#stone9").css('margin-left', stone9.left)
+        $("#stone10").css('margin-left', stone10.left)
+        $("#stone11").css('margin-left', stone11.left)
+        $("#stone12").css('margin-left', stone12.left)
+        $("#stone13").css('margin-left', stone13.left)
+        $("#stone14").css('margin-left', stone14.left)
+        $("#stone15").css('margin-left', stone15.left)
 
-        if (stone0.left <= -150) { stoneAppearence() }
-        if (stone1.left <= -150) { stoneAppearence() }
-        if (stone2.left <= -150) { stoneAppearence() }
-        if (stone3.left <= -150) { stoneAppearence() }
-        if (stone4.left <= -150) { stoneAppearence() }
-        if (stone5.left <= -150) { stoneAppearence() }
-        if (stone6.left <= -150) { stoneAppearence() }
-        if (stone7.left <= -150) { stoneAppearence() }
-        if (stone8.left <= -150) { stoneAppearence() }
-        if (stone9.left <= -150) { stoneAppearence() }
-        if (stone10.left <= -150) { stoneAppearence() }
-        if (stone11.left <= -150) { stoneAppearence() }
-        if (stone12.left <= -150) { stoneAppearence() }
-        if (stone13.left <= -150) { stoneAppearence() }
-        if (stone14.left <= -150) { stoneAppearence() }
-        if (stone15.left <= -150) { stoneAppearence() }
+        if (stone0.left <= -150) {
+            stone0.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log("rechts")
+            console.log(zahl);
+            $("#stone0")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone1.left <= -150) {
+            stone1.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone1")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone2.left <= -150) {
+            stone2.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone2")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone3.left <= -150) {
+            stone3.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone3")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone4.left <= -150) {
+            stone4.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone4")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone5.left <= -150) {
+            stone5.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone5")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone6.left <= -150) {
+            stone6.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone6")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone7.left <= -150) {
+            stone7.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone7")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone8.left <= -150) {
+            stone8.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone8")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone9.left <= -150) {
+            stone9.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone9")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone10.left <= -150) {
+            stone10.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone10")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone11.left <= -150) {
+            stone11.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone11")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone12.left <= -150) {
+            stone12.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone12")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone13.left <= -150) {
+            stone13.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone13")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone14.left <= -150) {
+            stone14.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone14")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+        }
+        if (stone15.left <= -150) {
+            stone15.left = 1900
+            zahl = Math.floor(Math.random() * 900)
+            console.log(zahl);
+            $("#stone15")
+                .css('margin-top', zahl)
+                .css('margin-left', stone.left)
+            console.log(zahl)
+        }
 
-        console.log(stone0.left)
-        console.log(stone15.left <= -150)
-        
     }, 100);
 }
 
 function generateStones() {
-    let html = "";
-    for (var i = 0; i < stoneNumber; i++) {
-        html += '<div id="stone' + i + '" style="height:75; width:200"></div>'
-    }
+//    let html = "";
+//    for (var i = 0; i < stoneNumber; i++) {
+//        html += '<div id="stone' + i + '" style="height:75; width:200"></div>'
+//    }
 
-    document.getElementById("stoneParent").innerHTML = html;
+//    document.getElementById("stoneParent").innerHTML = html;
 
-    stoneAppearence()
     stoneMovment()
+    setStoneImage()
+}
+
+function setStonesVisible(timeUntilNextStone) {
+
+        setTimeout(function() {
+            startStones++
+            showStones()
+            timeUntilNextStone = setStonesVisibleDelay()
+        }, timeUntilNextStone)
+}
+
+function setStonesVisibleDelay() {
+    return Math.floor(Math.random() * 10 * 1000);
+}
+
+function showStones() {
+    if (startStones >= 1) { $("#stone0").show() }
+    if (startStones >= 2) { $("#stone1").show() }
+    if (startStones >= 3) { $("#stone2").show() }
+    if (startStones >= 4) { $("#stone3").show() }
+    if (startStones >= 5) { $("#stone4").show() }
+    if (startStones >= 6) { $("#stone5").show() }
+    if (startStones >= 7) { $("#stone6").show() }
+    if (startStones >= 8) { $("#stone7").show() }
+    if (startStones >= 9) { $("#stone8").show() }
+    if (startStones >= 10) { $("#stone9").show() }
+    if (startStones >= 11) { $("#stone10").show() }
+    if (startStones >= 12) { $("#stone11").show() }
+    if (startStones >= 13) { $("#stone12").show() }
+    if (startStones >= 14) { $("#stone13").show() }
+    if (startStones >= 15) { $("#stone14").show() }
+    if (startStones >= 16) { $("#stone15").show() }
+}
+
+function setStoneImage() {
+    for (var i = 0; i < stoneNumber; i++) {
+        let id = "#stone" + i
+        console.log(id)
+        $(id)
+            .css('background-image', "url(grafik/stone.png)")
+            .css('position, absolute')
+    }
+    $("#stone0")
+    .css('background-image', "url(grafik/stone.png)")
+    .css('position, absolute')
 }
 
 function updatePlayer() {
