@@ -1,6 +1,7 @@
 let player = {
     top: 0,
-    left: 0
+    left: 0,
+    speed: 10
 }
 
 $(document).ready(function () {
@@ -25,11 +26,11 @@ $(document).ready(function () {
 });
 
 function movePlayerLeft() {
-    player.left = player.left - 10;
+    player.left = player.left - speed;
 }
 
 function movePlayerRight() {
-    player.left = player.left + 10;
+    player.left = player.left + speed;
 }
 
 function updatePlayerLocation() {
