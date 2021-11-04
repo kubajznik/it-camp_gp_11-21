@@ -1,0 +1,13 @@
+#coin{
+    background-color: orange;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    left: 50%;
+}
+#player{
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}

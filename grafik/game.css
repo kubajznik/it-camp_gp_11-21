@@ -1,0 +1,82 @@
+#player {
+    width: 100px;
+	height: 100px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('mario.png');
+    z-index: 100;
+}
+
+#stoneParent {
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#stone0 {
+    width: 200px;
+    height: 75px;
+}
+#stone1 {
+    width: 200px;
+    height: 75px;
+}
+#stone2 {
+    width: 200px;
+    height: 75px;
+}
+#stone3 {
+    width: 200px;
+    height: 75px;
+}
+#stone4 {
+    width: 200px;
+    height: 75px;
+}
+#stone5 {
+    width: 200px;
+    height: 75px;
+}
+#stone6 {
+    width: 200px;
+    height: 75px;
+}
+#stone7 {
+    width: 200px;
+    height: 75px;
+}
+#stone8 {
+    width: 200px;
+    height: 75px;
+}
+#stone9 {
+    width: 200px;
+    height: 75px;
+}
+#stone10 {
+    width: 200px;
+    height: 75px;
+}
+#stone11 {
+    width: 200px;
+    height: 75px;
+}
+#stone12 {
+    width: 200px;
+    height: 75px;
+}
+#stone13 {
+    width: 200px;
+    height: 75px;
+}
+#stone14 {
+    width: 200px;
+    height: 75px;
+}
+#stone15 {
+    width: 200px;
+    height: 75px;
+}
