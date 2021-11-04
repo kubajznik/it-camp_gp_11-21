@@ -331,8 +331,6 @@ function setStoneImage() {
     $("#stone0")
     .css('background-image', "url(grafik/stone.png)")
     .css('position, absolute')
-    .css('width', "200px")
-    .css('height', "75px")
 }
 
 function updatePlayer() {
