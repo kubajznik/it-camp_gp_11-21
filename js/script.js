@@ -1,6 +1,8 @@
 let player = {
     top: 0,
     left: 0,
+    width: 100,
+    height: 100,
     //jumpStrength has to be adjusted in the css animation
     jumpStrenght: 100,
     bigJumpStrength: 200,
@@ -13,6 +15,8 @@ let map = {
     startingLeft: 625
 }
 
+let score = 0;
+
 $(document).ready(function() {
     setStartPosition(map.startingTop, map.startingLeft);
     setPlayerCostume();
@@ -20,48 +24,66 @@ $(document).ready(function() {
 
     $(document).on('keydown', function(e) {
         switch (e.code) {
-            case "KeyD":
-                player.left = player.left + 15;
-                break;
-            case "KeyA":
-                player.left = player.left - 15;
-                break;
             case "KeyW":
                 jump();
                 break;
             case "Space":
                 highjump();
                 break;
-            case "KeyB":
-                let obstacle = $("#playground").append('<div class="obstacle"> </div>')[0].lastChild;
-                console.log(obstacle);
-                window.setTimeout(function() {
-                    obstacle.remove();
-                }, 2500);
-                break;
-            default:
-                console.log(e.code);
         }
         setPlayerPosition()
     });
+
+    window.setInterval(function() {
+        window.setTimeout(
+            function() {
+                spawnObstacles();
+            }, randomInt())
+    }, 1000);
 
     $("#map").click(function() {
 
     });
 
     $("#starten").click(function() {
-        /*function coinAppearence() {
-            zahl = Math.floor(Math.random() * 900)
-            coin.left = 1900
-            for (let i = 0; i < coinNumber; i++) {
-                $("#coin" + i)
-                    .css('margin-top', zahl)
-                    .css('margin-left', coin.left)
-            }
-            console.log("coinApperance")
-        }*/
+
     });
 });
+
+let fastestSpawn = 500;
+let slowestSpawn = 2000;
+
+function randomInt() {
+    return Math.round(Math.random() * (slowestSpawn - fastestSpawn) + fastestSpawn);
+}
+
+var CharacterWidthAdjustment = 25;
+
+function checkCollisionObstacle(character, obstacle) {
+    if (player.left + player.width + CharacterWidthAdjustment >= obstacle.offsetLeft && player.left + CharacterWidthAdjustment >= obstacle.offsetLeft &&
+        player.left + CharacterWidthAdjustment < obstacle.offsetLeft + obstacle.offsetWidth &&
+        character.offsetTop + player.height >= obstacle.offsetTop + obstacle.offsetHeight + 2) {
+        alert("Game Over. Du hast " + score + " Punkte erzielt.");
+        gameReset();
+    }
+}
+
+function spawnObstacles() {
+    let obstacle = $("#playground").append('<div class="obstacle"> </div>')[0].lastChild;
+    let character = document.getElementById("player");
+    let interval = window.setInterval(function() {
+        checkCollisionObstacle(character, obstacle)
+    }, 2);
+    window.setTimeout(function() {
+        obstacle.remove();
+        updateScore();
+        clearInterval(interval);
+    }, 2500);
+}
+
+function gameReset() {
+    score = 0;
+}
 
 function highjump() {
     $('#player').addClass("highJumpClass");
@@ -81,6 +103,11 @@ function setStartPosition(top, left) {
     player.top = top;
     player.left = left;
     setPlayerPosition();
+}
+
+function updateScore() {
+    score++;
+    $("#score").text("Punkte: " + score);
 }
 
 function setPlayerPosition() {
