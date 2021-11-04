@@ -1,3 +1,4 @@
+
 function setStartPosition(top, left){
 			player.top = top;
 			player.left = left;
@@ -13,11 +14,10 @@ function setStartPosition(top, left){
 		$(document).ready(function() {
 			setStartPosition(630, 400);
 		});
-		
-		
-		
-	
 
+$(document).ready(e => {
+	$("#starten").click(function(){
+		
 function setStartPositionCoin(top, left){
 			coin.top = top;
 			coin.left = left;
@@ -96,7 +96,25 @@ function coinMovment() {
 		left: '+=50'
 	},5000, function() {
 	});
-			
-			
+	});
+});
+
+
+$(document).ready(e => {
+	$("#map").click(function(){
 		
 		
+		
+	
+	});
+});
+
+
+$(document).ready(e => {
+	$("#charakter").click(function(){
+		
+		
+		
+	
+	});
+});
