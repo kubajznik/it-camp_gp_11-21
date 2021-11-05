@@ -184,5 +184,10 @@ function spawnCoins() {
         checkCollisionCoin(character, coin)
     }, 2);
     //Entferne nach 2500 (=Zeit der Animation) das Hidernis aus dem Spiel
+	    window.setTimeout(function() {
+        coin.remove();
+        //Punkt, wenn Hindernis verschwindet, TOD: richtige Punkteanzeige implementieren
+        clearInterval(interval);
+    }, 2500);
 
 }
