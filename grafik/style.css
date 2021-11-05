@@ -24,6 +24,9 @@
     font-size: 1.5em;
 }
 
+
+/*Das Div für den Startbildschirm TODO: Startbildschirm implementieren*/
+
 #homeScreen {
     display: none;
 }
@@ -36,6 +39,9 @@
     position: absolute;
     z-index: 2;
 }
+
+
+/*Die Bewegung der Gegner bzw. Hindernisse von rechts nach links*/
 
 .obstacle {
     z-index: 2;
@@ -59,6 +65,9 @@
     }
 }
 
+
+/*Die Animation für einen kleinen Sprung*/
+
 .jumpClass {
     animation: jump 300ms ease-in-out;
 }
@@ -77,6 +86,9 @@
         top: 0px;
     }
 }
+
+
+/*Die Animation für einen hohen Sprung*/
 
 .highJumpClass {
     animation: highJump 450ms ease-in-out;
@@ -97,34 +109,19 @@
     }
 }
 
-#stoneParent {
-    width: 200px;
-    height: 75px;
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-#stone0 {
-    width: 200px;
-    height: 75px;
-}
+/*Die Klasse für alle Münzen, TODO: Münzen implementieren, orientieren an Obstacle*/
 
-.stone {
-    width: 200px;
-    height: 75px;
-}
-
-#coin {
+.coin {
     height: 50px;
     width: 50px;
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('muenze.png')
+    background-image: url('coin.png')
 }
 
-#buttons {
+button {
     position: absolute;
     margin: 0;
     top: 50%;
