@@ -59,7 +59,7 @@ $(document).ready(function() {
 });
 
 //kürester Abstand zwischen Gegnern
-let fastestSpawn = 0;
+let fastestSpawn = 1000;
 //weitester Abstand zwischen Gegnern
 let slowestSpawn = 2000;
 
@@ -149,4 +149,42 @@ function setPlayerCostume() {
 //Den in map gespeicherten Hintergrund anzeigen
 function setMapCostume() {
     $("#playground").css('background-image', "url('" + map.costume + "')");
+}
+
+
+
+
+
+
+
+
+    window.setInterval(function() {
+        window.setTimeout(
+            function() {
+                spawnCoins();
+            }, randomInt())
+    }, 1000);
+	
+	
+	function checkCollisionCoin(character, coin) {
+    if (player.left + player.width + CharacterWidthAdjustment >= coin.offsetLeft && player.left + CharacterWidthAdjustment >= coin.offsetLeft &&
+        player.left + CharacterWidthAdjustment < coin.offsetLeft + coin.offsetWidth &&
+        character.offsetTop + player.height >= coin.offsetTop + coin.offsetHeight + 2) {
+			score++;
+    $("#coins").text("Punkte: " + score);
+		coin.remove();
+ }
+}
+
+function spawnCoins() {
+    //Füge Spielfeld ein Coin hinzu
+    let coin = $("#playground").append('<div class="coin"> </div>')[0].lastChild;
+    let character = document.getElementById("player");
+    //Überprüfe alle 2ms
+    let interval = window.setInterval(function() {
+        //ob Kollision auftritt
+        checkCollisionCoin(character, coin)
+    }, 2);
+    //Entferne nach 2500 (=Zeit der Animation) das Hidernis aus dem Spiel
+
 }

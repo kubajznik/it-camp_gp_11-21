@@ -56,6 +56,19 @@
     animation: obstacle 2.5s linear;
 }
 
+.coin {
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("coin.png");
+    position: absolute;
+    top: 250px;
+    left: 1250px;
+    animation: obstacle 2.5s linear;
+}
+
 @keyframes obstacle {
     0% {
         left: 1250px;
