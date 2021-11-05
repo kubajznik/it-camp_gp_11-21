@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#playground {
+    display: block;
+    width: 1250px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: solid black 2px;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #045FB4;
+    color: white;
+    padding: 0.5em;
+    border-radius: 20px;
+    font-family: sans-serif;
+    font-size: 1.5em;
+}
+
+#homeScreen {
+    display: none;
+}
+
+#player {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 2;
+}
+
+.obstacle {
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("obstacleIce.png");
+    position: absolute;
+    top: 300px;
+    left: 1250px;
+    animation: obstacle 2.5s linear;
+}
+
+@keyframes obstacle {
+    0% {
+        left: 1250px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.jumpClass {
+    animation: jump 300ms ease-in-out;
+}
+
+@keyframes jump {
+    0% {
+        top: 0px;
+    }
+    45% {
+        top: -100px;
+    }
+    55% {
+        top: -100px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+.highJumpClass {
+    animation: highJump 450ms ease-in-out;
+}
+
+@keyframes highJump {
+    0% {
+        top: 0px;
+    }
+    45% {
+        top: -200px;
+    }
+    55% {
+        top: -200px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+#stoneParent {
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#stone0 {
+    width: 200px;
+    height: 75px;
+}
+
+.stone {
+    width: 200px;
+    height: 75px;
+}
+
+#coin {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('muenze.png')
+}
+
+#buttons {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate (-50%, -50%);
+    transform: translate(-50%, -50%);
+}
