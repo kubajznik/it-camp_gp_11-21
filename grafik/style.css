@@ -59,9 +59,43 @@
     70%{left: 300px;}
     100%{left: 0px;}
 }
-
-
-
-
-
-
+.other_screen {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate (-50%, -50%);
+    transform: translate(-50%, -50%);
+	height: 50px;
+    width: 250px;
+	font-size: 25px;
+	background-color: red;
+}
+.Start {
+	position: absolute;
+    margin: 0;
+    left: 50%;
+    -ms-transform: translate (-50%, -50%);
+    transform: translate(-50%, -50%);
+	height: 50px;
+   font-size: 25px;
+}
+#neustart {
+		top: 40%;
+		width: 150px;
+		background-color: red;
+}
+#starten{
+		top: 50%;
+		width:131px;
+}
+#Verloren {
+	display:none;
+	margin-top:0px;
+	margin-left:0px;
+	position: fixed;
+	height: 600px;
+	width: 1300px;
+	background-color: black;
+	z-index: 1000;
+}
