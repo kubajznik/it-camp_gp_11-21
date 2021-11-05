@@ -20,6 +20,8 @@ let map = {
 
 let score = 0;
 
+let interval2;
+
 $(document).ready(function() {
     //Vorbereitung, die nötig ist
     setStartPosition(map.startingTop, map.startingLeft);
@@ -40,7 +42,7 @@ $(document).ready(function() {
     });
 
     //Erzeuge jede Sekunde ein Hindernis, dass nach einer zufälligen Zeit erscheint
-    window.setInterval(function() {
+    interval2 = window.setInterval(function() {
         window.setTimeout(
             function() {
                 spawnObstacles();
@@ -75,7 +77,7 @@ function checkCollisionObstacle(character, obstacle) {
     if (player.left + player.width + CharacterWidthAdjustment >= obstacle.offsetLeft && player.left + CharacterWidthAdjustment >= obstacle.offsetLeft &&
         player.left + CharacterWidthAdjustment < obstacle.offsetLeft + obstacle.offsetWidth &&
         character.offsetTop + player.height >= obstacle.offsetTop + obstacle.offsetHeight + 2) {
-        alert("Game Over. Du hast " + score + " Punkte erzielt.");
+        //alert("Game Over. Du hast " + score + " Punkte erzielt.");
         gameReset();
     }
 }
@@ -101,8 +103,11 @@ function spawnObstacles() {
 
 //Alles, was nach einem Spiel passieren muss
 function gameReset() {
+    $('#Verloren').show();
+    clearInterval(interval2);
+    let punkte = score;
     score = 0;
-}
+};
 
 //Großer Sprung
 function highjump() {
