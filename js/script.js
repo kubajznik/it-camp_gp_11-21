@@ -94,7 +94,6 @@ function spawnObstacles() {
     window.setTimeout(function() {
         obstacle.remove();
         //Punkt, wenn Hindernis verschwindet, TOD: richtige Punkteanzeige implementieren
-        updateScore();
         clearInterval(interval);
     }, 2500);
 }
@@ -130,7 +129,7 @@ function setStartPosition(top, left) {
 
 //Punktestand erhöhen und anzeigen
 function updateScore() {
-    score++;
+    score = score+3;
     $("#score").text("Punkte: " + score);
 }
 
@@ -170,8 +169,7 @@ function setMapCostume() {
     if (player.left + player.width + CharacterWidthAdjustment >= coin.offsetLeft && player.left + CharacterWidthAdjustment >= coin.offsetLeft &&
         player.left + CharacterWidthAdjustment < coin.offsetLeft + coin.offsetWidth &&
         character.offsetTop + player.height >= coin.offsetTop + coin.offsetHeight + 2) {
-			score++;
-    $("#coins").text("Punkte: " + score);
+			updateScore();
 		coin.remove();
  }
 }
