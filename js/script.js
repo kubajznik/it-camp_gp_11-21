@@ -20,12 +20,14 @@ let map = {
 
 let score = 0;
 
+let interval2;
+
 $(document).ready(function() {
     //Vorbereitung, die nötig ist
     setStartPosition(map.startingTop, map.startingLeft);
     setPlayerCostume();
     setMapCostume();
-
+	
     //kleiner Sprung mit w, großer mit Leertaste
     $(document).on('keydown', function(e) {
         switch (e.code) {
@@ -40,7 +42,7 @@ $(document).ready(function() {
     });
 
     //Erzeuge jede Sekunde ein Hindernis, dass nach einer zufälligen Zeit erscheint
-    window.setInterval(function() {
+    interval2 = window.setInterval(function() {
         window.setTimeout(
             function() {
                 spawnObstacles();
@@ -51,11 +53,21 @@ $(document).ready(function() {
     $("#map").click(function() {
 
     });
-
-    //TODO Startbildschirm implementieren
-    $("#starten").click(function() {
-
+	
+	   $("#neustart").click(function() {
+			$('#Verloren').hide();
+			interval2 = window.setInterval(function() {
+        window.setTimeout(
+            function() {
+                spawnObstacles();
+            }, randomInt())
+    }, 1000);
     });
+$("#back_to_homescreen").click(function() {
+			$('#Verloren').hide();
+			$('#homeScreen').show();								// korrekte ID einfügen 
+    });
+    //TODO Startbildschirm implementieren
 });
 
 //kürester Abstand zwischen Gegnern
@@ -75,7 +87,7 @@ function checkCollisionObstacle(character, obstacle) {
     if (player.left + player.width + CharacterWidthAdjustment >= obstacle.offsetLeft && player.left + CharacterWidthAdjustment >= obstacle.offsetLeft &&
         player.left + CharacterWidthAdjustment < obstacle.offsetLeft + obstacle.offsetWidth &&
         character.offsetTop + player.height >= obstacle.offsetTop + obstacle.offsetHeight + 2) {
-        alert("Game Over. Du hast " + score + " Punkte erzielt.");
+        //alert("Game Over. Du hast " + score + " Punkte erzielt.");
         gameReset();
     }
 }
@@ -100,8 +112,10 @@ function spawnObstacles() {
 
 //Alles, was nach einem Spiel passieren muss
 function gameReset() {
+    $('#Verloren').show();
+    clearInterval(interval2);
     score = 0;
-}
+};
 
 //Großer Sprung
 function highjump() {

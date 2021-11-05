@@ -24,6 +24,17 @@
     font-size: 1.5em;
 }
 
+#Verloren {
+    display: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    position: fixed;
+    height: 600px;
+    width: 1300px;
+    background-color: black;
+    z-index: 1000;
+}
+
 
 /*Das Div für den Startbildschirm TODO: Startbildschirm implementieren*/
 
@@ -139,6 +150,40 @@ button {
     margin: 0;
     top: 50%;
     left: 50%;
+}
+#neustart	{
+	top:40%;
+	left:40%;
+	background-color:red;
+	font-size:50px;
+	width: 200px;
+}
+#back_to_homescreen {
+	font-size:50px;
+	width: 500px;
+	background-color:red;
+	height:70px
+	top: 55%;
+	left: 40%;
+}
+#starten {
+	top:40%;
+	left:50%;
+}
+#GameOver {
+    position: absolute;
+    margin: 0;
+    top: 20%;
+    left: 85%;
     -ms-transform: translate (-50%, -50%);
     transform: translate(-50%, -50%);
+	font-size: 200px;
+	color:red;
+	width:1900px
+}
+#neustart {
+    top: 40%
+}
+body {
+	position: absolute;
 }
