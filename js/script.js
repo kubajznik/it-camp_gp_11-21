@@ -27,7 +27,7 @@ $(document).ready(function() {
     setStartPosition(map.startingTop, map.startingLeft);
     setPlayerCostume();
     setMapCostume();
-
+	
     //kleiner Sprung mit w, großer mit Leertaste
     $(document).on('keydown', function(e) {
         switch (e.code) {
@@ -53,11 +53,21 @@ $(document).ready(function() {
     $("#map").click(function() {
 
     });
-
-    //TODO Startbildschirm implementieren
-    $("#starten").click(function() {
-
+	
+	   $("#neustart").click(function() {
+			$('#Verloren').hide();
+			interval2 = window.setInterval(function() {
+        window.setTimeout(
+            function() {
+                spawnObstacles();
+            }, randomInt())
+    }, 1000);
     });
+$("#back_to_homescreen").click(function() {
+			$('#Verloren').hide();
+			$('#homeScreen').show();								// korrekte ID einfügen 
+    });
+    //TODO Startbildschirm implementieren
 });
 
 //kürester Abstand zwischen Gegnern
@@ -105,7 +115,6 @@ function spawnObstacles() {
 function gameReset() {
     $('#Verloren').show();
     clearInterval(interval2);
-    let punkte = score;
     score = 0;
 };
 
